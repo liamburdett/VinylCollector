@@ -28,13 +28,32 @@ class AlbumViewController: UIViewController, UIImagePickerControllerDelegate, UI
 
 
     @IBAction func addTapped(_ sender: UIButton) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        let record = Record(context: context)
+        record.artist = artistTextField.text
+        record.album = albumTextField.text
+        record.image = UIImagePNGRepresentation(albumImageView.image!)
+        
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        navigationController!.popViewController(animated: true)
     }
+    
     
     @IBAction func photosTapped(_ sender: Any) {
         
         imagePicker.sourceType = .photoLibrary
         
         present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        albumImageView.image = image
+        
+        imagePicker.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func cameraTapped(_ sender: Any) {
