@@ -8,10 +8,12 @@
 
 import UIKit
 
-class AlbumViewController: UIViewController {
+class AlbumViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
     
     @IBOutlet weak var albumImageView: UIImageView!
+    
+    var imagePicker = UIImagePickerController()
     
     @IBOutlet weak var artistTextField: UITextField!
     
@@ -19,17 +21,20 @@ class AlbumViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        imagePicker.delegate = self
+    }
         // Do any additional setup after loading the view.
-   
 
 
-
-}
     @IBAction func addTapped(_ sender: UIButton) {
     }
     
     @IBAction func photosTapped(_ sender: Any) {
+        
+        imagePicker.sourceType = .photoLibrary
+        
+        present(imagePicker, animated: true, completion: nil)
     }
     
     @IBAction func cameraTapped(_ sender: Any) {
