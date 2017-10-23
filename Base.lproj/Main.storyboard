@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eUL-Ak-y9u">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,131 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="VinylCollector" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DrV-tN-xvL">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="DrV-tN-xvL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3pa-mc-tP1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DrV-tN-xvL" secondAttribute="trailing" id="G8h-z1-BLq"/>
+                            <constraint firstItem="DrV-tN-xvL" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="caT-A5-uSy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DrV-tN-xvL" secondAttribute="bottom" id="tjq-36-4ix"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="yNR-gK-pyA">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="MxZ-O8-c4j">
+                            <connections>
+                                <segue destination="Qwb-di-jpg" kind="show" id="L9k-kr-VHq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="260" y="132.68365817091455"/>
+        </scene>
+        <!--Album View Controller-->
+        <scene sceneID="5ss-6K-eZC">
+            <objects>
+                <viewController id="Qwb-di-jpg" customClass="AlbumViewController" customModule="VinylCollector" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pyh-jh-szi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="KingGizzard-art.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="COq-iV-fXV">
+                                <rect key="frame" x="112" y="114" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="I9N-8v-5OB"/>
+                                    <constraint firstAttribute="height" constant="150" id="q18-dF-s1i"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Artist Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IQD-cL-tpa">
+                                <rect key="frame" x="112.5" y="274" width="150" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D7a-PZ-28h">
+                                <rect key="frame" x="172" y="354" width="30" height="30"/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addTapped:" destination="Qwb-di-jpg" eventType="touchUpInside" id="6GX-5H-0Ct"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Album Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qKx-fU-nM8">
+                                <rect key="frame" x="113" y="314" width="150" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="COq-iV-fXV" firstAttribute="top" secondItem="zUJ-Z5-95X" secondAttribute="top" constant="50" id="5H5-nA-Xi8"/>
+                            <constraint firstItem="COq-iV-fXV" firstAttribute="centerX" secondItem="pyh-jh-szi" secondAttribute="centerX" id="Bwb-k4-PZY"/>
+                            <constraint firstItem="IQD-cL-tpa" firstAttribute="centerX" secondItem="pyh-jh-szi" secondAttribute="centerX" id="Bxb-K3-4Am"/>
+                            <constraint firstItem="D7a-PZ-28h" firstAttribute="top" secondItem="qKx-fU-nM8" secondAttribute="bottom" constant="10" id="Fm6-Sb-rL3"/>
+                            <constraint firstItem="qKx-fU-nM8" firstAttribute="width" secondItem="COq-iV-fXV" secondAttribute="width" id="Mao-wS-FLn"/>
+                            <constraint firstItem="IQD-cL-tpa" firstAttribute="top" secondItem="COq-iV-fXV" secondAttribute="bottom" constant="10" id="SPF-bo-u22"/>
+                            <constraint firstItem="qKx-fU-nM8" firstAttribute="centerX" secondItem="pyh-jh-szi" secondAttribute="centerX" id="WvU-tr-nqx"/>
+                            <constraint firstItem="D7a-PZ-28h" firstAttribute="centerX" secondItem="pyh-jh-szi" secondAttribute="centerX" id="g58-al-rvf"/>
+                            <constraint firstItem="IQD-cL-tpa" firstAttribute="width" secondItem="COq-iV-fXV" secondAttribute="width" id="mdM-kc-Ivd"/>
+                            <constraint firstItem="qKx-fU-nM8" firstAttribute="top" secondItem="IQD-cL-tpa" secondAttribute="bottom" constant="10" id="uaB-A0-3q9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zUJ-Z5-95X"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="kyE-hv-MSi">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="camera" id="BD9-59-tr4">
+                                <connections>
+                                    <action selector="cameraTapped:" destination="Qwb-di-jpg" id="oRg-gF-CjN"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Photos" id="9Bg-Ff-yr2">
+                                <connections>
+                                    <action selector="photosTapped:" destination="Qwb-di-jpg" id="ijO-j1-b4f"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="albumImageView" destination="COq-iV-fXV" id="znf-Ru-zCO"/>
+                        <outlet property="albumTextField" destination="qKx-fU-nM8" id="nuR-KS-a7c"/>
+                        <outlet property="artistTextField" destination="IQD-cL-tpa" id="mkH-Js-gCS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2IO-ss-wgD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="981.60000000000002" y="132.68365817091455"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="KXn-rt-9aM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eUL-Ak-y9u" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CCu-ew-bpS">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="vUG-EC-jbm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SG1-XB-yxV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-396" y="133"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="KingGizzard-art.jpg" width="700" height="700"/>
+    </resources>
 </document>
