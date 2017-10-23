@@ -48,4 +48,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell 
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let record = records[indexPath.row]
+        performSegue(withIdentifier: "recordSegue", sender: records)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextVC = segue.destination as! AlbumViewController
+        nextVC.record = sender as? Record
+    }
+    
 }

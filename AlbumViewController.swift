@@ -14,6 +14,7 @@ class AlbumViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var albumImageView: UIImageView!
     
     var imagePicker = UIImagePickerController()
+    var record : Record? = nil
     
     @IBOutlet weak var artistTextField: UITextField!
     
@@ -23,6 +24,12 @@ class AlbumViewController: UIViewController, UIImagePickerControllerDelegate, UI
         super.viewDidLoad()
         
         imagePicker.delegate = self
+        
+        if record != nil {
+            print("We have a record")
+        } else {
+            print("We have no record")
+        }
     }
         // Do any additional setup after loading the view.
 

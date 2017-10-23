@@ -36,7 +36,7 @@
                     <navigationItem key="navigationItem" id="yNR-gK-pyA">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="MxZ-O8-c4j">
                             <connections>
-                                <segue destination="Qwb-di-jpg" kind="show" id="L9k-kr-VHq"/>
+                                <segue destination="Qwb-di-jpg" kind="show" identifier="recordSegue" id="L9k-kr-VHq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
